@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- <MainPage/> -->
-    <browse/>
+    <Browse/>
     <!-- <Login/> -->
   </div>
 </template>
