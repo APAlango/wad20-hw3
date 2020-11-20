@@ -8,8 +8,8 @@
         <input type="text" name="search"><button type="button">Search</button>
       </div>
       <div class="avatar-container">
-        <img class="avatar">
-        <div class="drop-down-container">
+        <img class="avatar" @click="toggleDropDownMenu">
+        <div v-show="!dropDownMenuIsHidden" class="drop-down-container">
           <span id="user-name">John Doe</span>
           <span id="user-email"></span>
           <span class="separator"></span>
@@ -28,7 +28,18 @@
 
 <script>
 export default {
-    name: 'Header'
+    name: 'Header',
+    dropDownMenuIsHidden: Boolean,
+    data: function () {
+      return {
+        dropDownMenuIsHidden: true
+      }
+    },
+    methods: {
+      toggleDropDownMenu: function () {
+        this.dropDownMenuIsHidden = !this.dropDownMenuIsHidden;
+      }
+    }
 }
 </script>
 
@@ -96,7 +107,6 @@ nav div.avatar-container {
     right: 0;
     top: 50px;
     text-align: left;
-    display: none;
 }
 .drop-down-container span{
     display: block;
