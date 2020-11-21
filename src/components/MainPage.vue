@@ -1,7 +1,7 @@
 <template>
 <div>
   <Header/>
-  <section class="main-container"></section>
+  <section class="main-container">TEST</section>
 </div>
 </template>
 

@@ -7,21 +7,22 @@
       <div class="search-container">
         <input type="text" name="search"><button type="button">Search</button>
       </div>
-      <div class="avatar-container">
-        <img class="avatar" @click="toggleDropDownMenu">
+      <div class="avatar-container" v-if="userIsLoaded">
+        <img class="avatar" :src="user.avatar" @click="toggleDropDownMenu">
         <div v-show="!dropDownMenuIsHidden" class="drop-down-container">
-          <span id="user-name">John Doe</span>
-          <span id="user-email"></span>
+          <span id="user-name">{{username}}</span>
+          <span id="user-email">{{user.email}}</span>
           <span class="separator"></span>
           <span>
-            <a href="browse.html">Browse</a>
+            <router-link to="/browse">Browse</router-link>
           </span>
           <span class="separator"></span>
           <span>
-            <a href="login.html">Log Out</a>
+            <router-link to="/login">Log Out</router-link>
           </span>
         </div>
       </div>
+      <div class="avatar-container" v-else>Axios loading...</div>
     </nav>
   </header>
 </template>
@@ -32,13 +33,27 @@ export default {
     dropDownMenuIsHidden: Boolean,
     data: function () {
       return {
-        dropDownMenuIsHidden: true
+        dropDownMenuIsHidden: true,
       }
     },
     methods: {
       toggleDropDownMenu: function () {
         this.dropDownMenuIsHidden = !this.dropDownMenuIsHidden;
       }
+    },
+    computed: {
+      userIsLoaded() {
+        return this.user !== undefined;
+      },
+      user() {
+        return this.$store.getters.getUser;
+      },
+      username() {
+        return this.user.firstname + " " + this.user.lastname;
+      }
+    },
+    mounted() {
+      this.$store.dispatch("fetchUser");
     }
 }
 </script>

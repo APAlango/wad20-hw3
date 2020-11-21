@@ -1,23 +1,13 @@
 <template>
   <div id="app">
-    <!-- <MainPage/> -->
-    <Browse/>
-    <!-- <Login/> -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-// import MainPage from './components/MainPage.vue'
-import Browse from './components/Browse.vue'
-// import Login from './components/Login.vue'
 
 export default {
   name: 'App',
-  components: {
-    // MainPage,
-    Browse,
-    // Login,
-  }
 }
 </script>
 
