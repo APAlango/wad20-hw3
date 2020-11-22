@@ -3,7 +3,7 @@
     <span class="post-author">
       <span class="post-author-info">
         <img :src="author.avatar" :alt="authorFullName">
-        <small>{{ authorFullName }}</small>
+        <small>{{ authorFullName | formalize }}</small>
       </span>
       <small>{{ createTime }}</small>
     </span>
@@ -35,6 +35,12 @@ export default {
     media: Object,
     text: String,
     likes: String,
+  },
+  filters: {
+    formalize(fullname) {
+      var i = fullname.lastIndexOf(' ');
+      return `${fullname.substring(i)}, ${fullname.substring(0, i)}`
+    }
   },
   components: { LikeButton },
   computed: {
