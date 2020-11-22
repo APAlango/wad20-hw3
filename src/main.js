@@ -13,10 +13,10 @@ Vue.use(VueRouter);
 Vue.use(Vuex);
 
 const routes = [
-  { path: '/', component: MainPage },
   { path: '/home', component: MainPage },
   { path: '/browse', component: Browse },
-  { path: '/login', component: Login }
+  { path: '/login', component: Login },
+  { path: '', redirect: '/home' }
 ]
 
 const router = new VueRouter({

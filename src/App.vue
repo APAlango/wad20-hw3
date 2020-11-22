@@ -8,6 +8,11 @@
 
 export default {
   name: 'App',
+  mounted: {
+      startFromHome() {
+          this.$router.push("/home")
+      }
+  }
 }
 </script>
 

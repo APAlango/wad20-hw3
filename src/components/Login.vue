@@ -6,7 +6,7 @@
         </div>
         <div>
           <h4>
-            <a href="#">Create an Account</a>
+            <router-link to="/home"><a>Create an Account</a></router-link>
           </h4>
         </div>
         <div>
@@ -26,7 +26,7 @@
             </div>
             <div>
               <small>
-                <a href="#">Forgot password?</a>
+                <router-link to="/home"><a>Forgot password?</a></router-link>
               </small>
             </div>
           </form>
