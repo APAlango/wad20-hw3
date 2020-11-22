@@ -14,7 +14,7 @@
         </div>
         <div>
           <h3>Please Log In</h3>
-          <form action="index.html" method="post">
+          <form @submit.stop.prevent="submit" method="post">
             <div>
               <input type="text" name="email" placeholder="Email">
             </div>
@@ -37,6 +37,11 @@
 
 <script>
 export default {
+  methods: {
+    submit() {
+      this.$router.push("/home");
+    }
+  }
 
 }
 </script>
