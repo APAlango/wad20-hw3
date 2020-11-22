@@ -30,7 +30,6 @@
 <script>
 export default {
     name: 'Header',
-    dropDownMenuIsHidden: Boolean,
     data: function () {
       return {
         dropDownMenuIsHidden: true,

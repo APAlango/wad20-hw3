@@ -2,15 +2,14 @@
   <div class="post">
     <span class="post-author">
       <span class="post-author-info">
-        <img src="author.avatarImageLink" alt="author.fullname">
-        <small>{{ author.fullname }}</small>
+        <img :src="author.avatar" :alt="authorFullName">
+        <small>{{ authorFullName }}</small>
       </span>
       <small>{{ createTime }}</small>
     </span>
-    <div class="post=image">
-      <video controls v-if="post.type == video" type="video/mp4" src="media.url">
-      </video>
-      <img v-if="post.type == image" src="media.url" alt="text">
+    <div v-if="media !== null" class="post-image">
+      <video controls v-if="media.type == 'video'" type="video/mp4" :src="media.url"></video>
+      <img v-else-if="media.type == 'image'" :src="media.url" alt="text">
     </div>
     <div class="post-title">
       <h3>{{ text }}</h3>
@@ -22,18 +21,25 @@
 </template>
 
 <script>
-import Author from '../classes/author'
-import Media from '../classes/media'
 
 export default {
   name: 'Post',
   props: {
-    author: Author,
+    author: {
+      firstname: String,
+      lastname: String,
+      avatar: String,
+    },
     createTime: String,
-    media: Media,
+    media: Object,
     text: String,
     likes: String,
-  }
+  },
+  computed: {
+    authorFullName() {
+      return this.author.firstname + ' ' + this.author.lastname
+    }
+  }  
 }
 </script>
 
