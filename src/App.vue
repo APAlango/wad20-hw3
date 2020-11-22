@@ -119,44 +119,6 @@ button:hover {
     padding: 10px;
 }
 
-.like-button {
-    background-image: url(./media/like.png);
-    background-size: 15px;
-    background-repeat: no-repeat;
-    background-position: 5px center;
-    background-color: #8a8a8a;
-    width: 60px;
-    height: 25px;
-    padding-left: 23px;
-    line-height: 10px;
-    text-align: left;
-    border: none;
-}
-
-.like-button.liked {
-    background-color: #01579b;
-}
-.profile {
-    width: 45%;
-    display: inline-block;
-    border: 1px solid #dedede;
-    border-radius: 5px;
-    text-align: center;
-    margin: 1%;
-}
-.profile img{
-    width: 75px;
-    height: 75px;
-    border-radius: 100%;
-    object-fit: cover;
-    object-position: top;
-    margin: 5px;
-}
-
-.profile h2{
-    font-size: 16px;
-}
-
 .follow-button{
     background-color: #82008f;
 }
